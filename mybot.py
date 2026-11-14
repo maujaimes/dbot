@@ -5,15 +5,18 @@ import os
 
 # Load environment variables from .env file
 load_dotenv()
-OPENAI_KEY = os.getenv('OPENAI_KEY')
-DISCORD_TOKEN = os.getenv('TOKEN')
+OPENROUTER_KEY = os.getenv('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')
+DISCORD_TOKEN = os.getenv('MTU3MDg2NzMxNjE4OTU2NDk2OQ.Gu8p6r.vMMKu_VUXd1Xht_aVY5gwQMYZiL5G8d9jQPH_0')
 
 # Initialize the OpenAI client
-openai_client = OpenAI(api_key=OPENAI_KEY)
+openai_client = OpenAI(
+ base_url="https://openrouter.ai/api/v1",
+ api_key=OPENROUTER_KEY,
+)
 
 def call_openai(question):
     completion = openai_client.chat.completions.create(
-        model="gpt-4o",
+    model="openrouter/free",
         messages=[
              {
                  "role": "user",
