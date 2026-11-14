@@ -16,7 +16,7 @@ openai_client = OpenAI(
 
 def call_openai(question):
     completion = openai_client.chat.completions.create(
-        model="openrouter/free",
+    model="openrouter/free",
         messages=[
              {
                  "role": "user",
